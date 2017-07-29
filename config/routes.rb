@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 		api_version(module: 'V1', path: { value: 'v1' }, defaults: { format: :json }) do
-		resources :users, only: [:create, :show], controller: :users do
+		resources :users, only: [:create, :show, :update, :destroy], controller: :users do
 	    end
 	end
 
