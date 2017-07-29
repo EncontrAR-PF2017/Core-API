@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.0'
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
@@ -76,6 +76,9 @@ gem 'recipient_interceptor'
 
 # Use for DoS attacks
 gem 'rack-attack'
+gem 'rack-cors', :require => 'rack/cors'
+
+gem 'versionist'
 
 group :development do
   # Gem to detect N+1 queries

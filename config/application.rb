@@ -28,6 +28,13 @@ module RailsBootstrap
       )
     end
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
     # Tell your app to use the Rack::Attack middleware
     config.middleware.use Rack::Attack
   end
