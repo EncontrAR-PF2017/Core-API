@@ -3,8 +3,8 @@ module V1
 
 		def create
 			privilege = Privilege.new(register_params)
-			privilege.save
-			render json: privilege
+			return render status: :bad_request unless privilege.save
+			render json: privilege, status: :created
 		end
 
 		def show

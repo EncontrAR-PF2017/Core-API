@@ -4,8 +4,8 @@ module V1
 
 		def create
 			user = User.new(register_params)
-			user.save
-			render json: user
+			return render status: :bad_request unless user.save
+			render json: user, status: :created
 		end
 
 		def show

@@ -3,8 +3,8 @@ module V1
 
 		def create
 			role = Role.new(register_params)
-			role.save
-			render json: role
+			return render status: :bad_request unless role.save
+			render json: role, status: :created
 		end
 
 		def show
