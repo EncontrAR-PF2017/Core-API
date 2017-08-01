@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 				get :get_owner
 			end
 		end
+
+		resources :alerts, only: [:create, :show, :update, :destroy]
+		resources :finders, only: [:create, :show, :update, :update_pos, :destroy]
 	end
 
   root to: 'application#index'

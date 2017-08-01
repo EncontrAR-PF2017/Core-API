@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730132951) do
+ActiveRecord::Schema.define(version: 20170731233521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alerts", force: :cascade do |t|
+    t.text     "title"
+    t.integer  "notifications_sent"
+    t.datetime "expire_date"
+    t.integer  "campaign_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["campaign_id"], name: "index_alerts_on_campaign_id", using: :btree
+  end
 
   create_table "campaigns", force: :cascade do |t|
     t.text     "title"
@@ -23,6 +33,20 @@ ActiveRecord::Schema.define(version: 20170730132951) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
+  end
+
+  create_table "finders", force: :cascade do |t|
+    t.text     "email"
+    t.text     "name"
+    t.text     "lastname"
+    t.text     "device_id"
+    t.text     "os"
+    t.text     "alert_type"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_finders_on_email", using: :btree
   end
 
   create_table "privileges", force: :cascade do |t|
@@ -50,5 +74,6 @@ ActiveRecord::Schema.define(version: 20170730132951) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "alerts", "campaigns"
   add_foreign_key "campaigns", "users"
 end
