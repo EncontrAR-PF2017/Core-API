@@ -43,3 +43,5 @@ dump.rdb
 
 # Ignore .env files
 .env*
+
+/config/local_env.yml

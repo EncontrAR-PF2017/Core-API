@@ -80,6 +80,8 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'versionist'
 
+gem 'wor-push-notifications-aws'
+
 group :development do
   # Gem to detect N+1 queries
   gem 'better_errors'

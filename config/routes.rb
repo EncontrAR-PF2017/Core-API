@@ -17,7 +17,13 @@ Rails.application.routes.draw do
 		end
 
 		resources :alerts, only: [:create, :show, :update, :destroy]
-		resources :finders, only: [:create, :show, :update, :update_pos, :destroy]
+		resources :finders, only: [:create, :show, :update, :destroy], controller: :finders do
+			member do
+				put :update_pos
+				post :add_device_token
+				post :send_message
+			end
+		end
 	end
 
   root to: 'application#index'
