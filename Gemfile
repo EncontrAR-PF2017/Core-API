@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # Use autoprefixer to avoid writing css prefixes
 gem 'autoprefixer-rails'
 
+gem 'bcrypt'
 gem 'bootstrap-sass'
 
 gem 'carrierwave'
