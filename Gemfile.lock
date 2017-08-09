@@ -512,6 +512,7 @@ DEPENDENCIES
   activeadmin!
   autoprefixer-rails
   awesome_print
+  bcrypt
   better_errors
   bootstrap-sass
   brakeman
