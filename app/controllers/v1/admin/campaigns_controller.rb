@@ -1,5 +1,5 @@
 module V1::Admin
-	class CampaignsController < BaseController
+	class CampaignsController < V1::BaseController
 
 		def create
 			campaign = Campaign.new(register_params)

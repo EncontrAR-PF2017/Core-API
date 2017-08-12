@@ -1,5 +1,5 @@
 module V1::Admin
-	class FindersController < BaseController
+	class FindersController < V1::BaseController
 
 		def show
  			finder = Finder.find(params[:id])
