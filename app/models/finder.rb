@@ -1,3 +1,3 @@
 class Finder < ApplicationRecord
-	validates :email, :name, :lastname, presence: true
+	validates :device_id, :os, presence: true
 end

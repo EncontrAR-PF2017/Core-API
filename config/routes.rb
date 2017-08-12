@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 				end
 			end
 
-			resources :finders, only: [:create, :show, :update, :destroy], controller: :finders do
+			resources :finders, only: [:create, :update] do
 				member do
 					put :update_pos
-					post :add_device_token
-					post :send_message
+				end
+
+				collection do
+					get :me
 				end
 			end
 
