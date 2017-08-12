@@ -1,4 +1,4 @@
-module V1
+module V1::Admin
 	class AlertsController < BaseController
 
 		def create

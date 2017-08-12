@@ -1,4 +1,4 @@
-module V1
+module V1::Admin
 	class UsersController < BaseController
 		skip_before_action :validate_token?, only: [:create]
 

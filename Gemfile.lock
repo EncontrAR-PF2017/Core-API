@@ -498,6 +498,9 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    wor-paginate (0.1.1)
+      rails (>= 4.0)
+      railties (>= 4.1.0, < 5.2)
     wor-push-notifications-aws (0.1.1)
       aws-sdk-rails (~> 1.0)
       railties (>= 4.1.0, < 5.2)
@@ -578,6 +581,7 @@ DEPENDENCIES
   versionist
   web-console
   webmock
+  wor-paginate
   wor-push-notifications-aws
 
 RUBY VERSION

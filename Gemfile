@@ -83,6 +83,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'versionist'
 
+gem 'wor-paginate'
 gem 'wor-push-notifications-aws'
 
 group :development do

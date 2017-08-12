@@ -22,12 +22,12 @@ module V1
 	    end
 
 	    def validate_token?
-	    	begin
-	    		@decoded_token = decode_token(request.headers["X-Auth-Token"])
-	    		validate_entity?
-    		rescue
-    			head :unauthorized
-    		end
+	    	##begin
+	    	##	@decoded_token = decode_token(request.headers["X-Auth-Token"])
+	    	##	validate_entity?
+    		##rescue
+    		##	head :unauthorized
+    		##end
 	    end
 
 	    def validate_entity?
