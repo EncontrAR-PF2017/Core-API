@@ -39,6 +39,8 @@ gem 'devise-async'
 # devise-i18n support
 gem 'devise-i18n'
 
+gem 'jwt'
+
 gem 'responders'
 
 gem 'active_model_serializers'

@@ -1,6 +1,6 @@
 module V1
 	class UsersController < BaseController
-		before_action only: [:create, :show, :update, :destroy]
+		skip_before_action :validate_token?, only: [:create]
 
 		def create
 			user = User.new(register_params)
@@ -10,7 +10,7 @@ module V1
 		end
 
 		def show
- 			user = User.find(params[:id])
+			user = User.find(params[:id])
  			render json: user
 		end
 
@@ -24,6 +24,10 @@ module V1
 			user = User.find(params[:id])
 			user.destroy
 			head :ok
+		end
+
+		def validate_entity?
+			raise Exception unless @decoded_token.first['data'] == params[:id]
 		end
 
 		private
