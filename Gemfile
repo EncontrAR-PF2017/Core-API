@@ -39,6 +39,8 @@ gem 'devise-async'
 # devise-i18n support
 gem 'devise-i18n'
 
+gem 'jwt'
+
 gem 'responders'
 
 gem 'active_model_serializers'
@@ -81,6 +83,7 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'versionist'
 
+gem 'wor-paginate'
 gem 'wor-push-notifications-aws'
 
 group :development do
