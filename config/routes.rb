@@ -35,6 +35,11 @@ Rails.application.routes.draw do
 					end
 				end
 
+				resources :finders, only: [:show, :update, :destroy] do
+					member do
+						post :send_message
+					end
+				end
 			end
 	end
 

@@ -1,6 +1,8 @@
 module V1::Admin
 	class FindersController < V1::BaseController
 
+		skip_before_action :validate_token?, only: [:send_message]
+
 		def show
  			finder = Finder.find(params[:id])
  			render json: finder
@@ -21,8 +23,7 @@ module V1::Admin
 		def send_message
 			finder = Finder.find(params[:id])
 			return :bad_request if finder.nil?
-			message_content = { message: params[:message]}
-			Wor::Push::Notifications::Aws.send_message(finder, message_content)
+			SendSnsNotificationWorker.perform_async(finder.id, params[:message])
 			head :ok
 		end
 
