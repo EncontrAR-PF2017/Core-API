@@ -3,8 +3,8 @@
 require 'sidekiq'
 
 url = ''
-url = if ENV['REDISCLOUD_URL']
-        ENV['REDISCLOUD_URL']
+url = if ENV['REDIS_URL']
+        ENV['REDIS_URL']
       elsif ENV['REDISTOGO_URL']
         ENV['REDISTOGO_URL']
       else
