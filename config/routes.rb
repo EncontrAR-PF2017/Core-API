@@ -7,13 +7,11 @@ Rails.application.routes.draw do
 				end
 			end
 
-			resources :finders, only: [:create, :update] do
-				member do
-					put :update_pos
-				end
-
+			resources :finders, only: [:create] do
 				collection do
 					get :me
+					put :update_pos
+					put :edit
 				end
 			end
 

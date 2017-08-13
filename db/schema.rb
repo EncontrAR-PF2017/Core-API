@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812211831) do
+ActiveRecord::Schema.define(version: 20170813010138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20170812211831) do
     t.datetime "updated_at",                 null: false
     t.json     "device_tokens", default: {}
     t.string   "auth_token"
+    t.index ["device_id"], name: "index_finders_on_device_id", unique: true, using: :btree
     t.index ["email"], name: "index_finders_on_email", using: :btree
   end
 
