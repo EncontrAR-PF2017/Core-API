@@ -8,8 +8,8 @@ module V1
 			if finder.auth_token.nil?
 				finder.auth_token = generate_token(finder.id)
 				finder.save
-				RegisterSnsDeviceWorker.perform_async(finder)
-				puts ' Lolololo '
+				RegisterSnsDeviceWorker.perform_async(finder.id)
+				head :created
 			end
 
 			render json: finder, status: :created
