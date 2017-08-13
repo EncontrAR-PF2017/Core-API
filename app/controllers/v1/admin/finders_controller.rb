@@ -18,13 +18,6 @@ module V1::Admin
 			head :ok
 		end
 
-		def add_device_token
-			finder = Finder.find(params[:id])
-			return :bad_request if finder.nil?
-			Wor::Push::Notifications::Aws.add_token(finder, params[:device_token], params[:device_type])
-			head :ok
-		end
-
 		def send_message
 			finder = Finder.find(params[:id])
 			return :bad_request if finder.nil?

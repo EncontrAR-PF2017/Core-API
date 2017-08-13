@@ -4,8 +4,14 @@ module V1
 
 		def create
 			finder = Finder.where(device_id: params['device_id']).first_or_create!(register_params)
-			finder.auth_token = generate_token(finder.id)
-			finder.save
+
+			if finder.auth_token.nil?
+				finder.auth_token = generate_token(finder.id)
+				finder.save
+				RegisterSnsDeviceWorker.perform_async(finder)
+				puts ' Lolololo '
+			end
+
 			render json: finder, status: :created
 		end
 
