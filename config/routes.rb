@@ -40,6 +40,12 @@ Rails.application.routes.draw do
 						post :send_message
 					end
 				end
+
+				resources :missing_persons, only: [:create, :show, :update, :destroy] do
+					collection do
+						get :index_all
+					end
+				end
 			end
 	end
 

@@ -1,0 +1,2 @@
+class MissingPersona < ApplicationRecord
+end
