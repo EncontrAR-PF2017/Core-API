@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813010138) do
+ActiveRecord::Schema.define(version: 20170820040921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 20170813010138) do
     t.index ["email"], name: "index_finders_on_email", using: :btree
   end
 
+  create_table "missing_persons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "dni"
+    t.integer  "sex"
+    t.integer  "age"
+    t.string   "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "privileges", force: :cascade do |t|
     t.string   "key"
     t.datetime "created_at", null: false
@@ -76,6 +87,8 @@ ActiveRecord::Schema.define(version: 20170813010138) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "password_hash"
+    t.string   "auth_token"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
   add_foreign_key "alerts", "campaigns"

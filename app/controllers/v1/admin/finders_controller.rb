@@ -1,5 +1,5 @@
 module V1::Admin
-	class FindersController < V1::BaseController
+	class FindersController < AdminController
 
 		skip_before_action :validate_token?, only: [:send_message]
 

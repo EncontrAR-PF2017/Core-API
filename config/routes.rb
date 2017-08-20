@@ -17,7 +17,13 @@ Rails.application.routes.draw do
 
 			namespace :admin do
 
-				resources :users, only: [:create, :show, :update, :destroy]
+				resources :users, only: [:create, :show, :update, :destroy] do
+					collection do
+						post :log_in
+						post :log_out
+					end
+				end
+
 				resources :roles, only: [:create, :show, :update, :destroy], controller: :roles do
 		        	member do
 		        		get :get_privileges

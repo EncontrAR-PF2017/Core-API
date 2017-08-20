@@ -1,6 +1,6 @@
 module V1::Admin
-	class UsersController < V1::BaseController
-		skip_before_action :validate_token?, only: [:create]
+	class UsersController < AdminController
+		skip_before_action :validate_token?, only: [:create, :log_in]
 
 		def create
 			user = User.new(register_params)
@@ -26,8 +26,22 @@ module V1::Admin
 			head :ok
 		end
 
-		def validate_entity?
-			raise Exception unless @decoded_token.first['data'] == params[:id]
+		def log_in
+			user = User.find_by_email(params[:email])
+
+			if user.present? && user.valid_password?(params[:password])
+				user.auth_token = generate_token(user.id)
+				return render status: :bad_request unless user.save
+				render json: user, status: :ok, serializer: UserAuthTokenSerializer
+			else
+				render status: :bad_request, json: { message: 'The auth failed. Did you check if the params are right?' }
+			end
+		end
+
+		def log_out
+			@user.auth_token = ''
+			return render status: :bad_request unless @user.save
+			head :ok
 		end
 
 		private

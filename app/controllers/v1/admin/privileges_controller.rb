@@ -1,5 +1,5 @@
 module V1::Admin
-	class PrivilegesController < V1::BaseController
+	class PrivilegesController < AdminController
 
 		def create
 			privilege = Privilege.new(register_params)

@@ -1,2 +1,0 @@
-class MissingPersona < ApplicationRecord
-end
