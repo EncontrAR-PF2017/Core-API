@@ -1,5 +1,5 @@
 module V1::Admin
-	class UsersController < AdminController
+	class UsersController < V1::AdminController
 		skip_before_action :validate_token?, only: [:create, :log_in]
 
 		def create

@@ -1,5 +1,5 @@
 module V1::Admin
-	class RolesController < AdminController
+	class RolesController < V1::AdminController
 
 		def create
 			role = Role.new(register_params)

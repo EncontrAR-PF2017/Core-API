@@ -1,5 +1,5 @@
 module V1::Admin
-	class AlertsController < AdminController
+	class AlertsController < V1::AdminController
 
 		def create
 			alert = Alert.new(register_params)

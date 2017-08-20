@@ -1,5 +1,5 @@
 module V1::Admin
-	class MissingPersonsController < AdminController
+	class MissingPersonsController < V1::AdminController
 		include Wor::Paginate
 
 		def create
