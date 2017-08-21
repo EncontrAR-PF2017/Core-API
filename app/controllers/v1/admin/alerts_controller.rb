@@ -4,6 +4,7 @@ module V1::Admin
 		def create
 			alert = Alert.new(register_params)
 			return render status: :bad_request unless alert.save
+			send_notifications(alert)
 			render json: alert, status: :created
 		end
 
@@ -22,6 +23,10 @@ module V1::Admin
 			alert = Alert.find(params[:id])
 			alert.destroy
 			head :ok
+		end
+
+		def send_notifications(alert)
+			SendAlertWorker.perform_async(alert.id, params[:message])
 		end
 
 		private
