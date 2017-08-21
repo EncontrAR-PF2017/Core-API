@@ -10,7 +10,6 @@ module V1::Admin
 
 			campaign = Campaign.new(register_params)
 			campaign.user_id = @user.id
-			campaign.missing_person_id = params[:missing_person_id]
 			return render status: :bad_request unless campaign.save
 			render json: campaign, status: :created
 		end
@@ -48,7 +47,7 @@ module V1::Admin
 
 		private
 		def register_params
-			params.permit(:title, :description)
+			params.permit(:title, :description, :missing_person_id)
 		end
 	end
 end
