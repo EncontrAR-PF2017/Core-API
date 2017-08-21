@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820223253) do
+ActiveRecord::Schema.define(version: 20170821170956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20170820223253) do
     t.integer  "campaign_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "zone_id"
     t.index ["campaign_id"], name: "index_alerts_on_campaign_id", using: :btree
+    t.index ["zone_id"], name: "index_alerts_on_zone_id", using: :btree
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -92,6 +94,16 @@ ActiveRecord::Schema.define(version: 20170820223253) do
     t.string   "password_hash"
     t.string   "auth_token"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+  end
+
+  create_table "zones", force: :cascade do |t|
+    t.string   "name"
+    t.float    "south_west_lat"
+    t.float    "south_west_long"
+    t.float    "north_east_lat"
+    t.float    "north_east_long"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "alerts", "campaigns"

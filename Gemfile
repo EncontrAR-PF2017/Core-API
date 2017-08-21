@@ -86,6 +86,8 @@ gem 'versionist'
 gem 'wor-paginate'
 gem 'wor-push-notifications-aws'
 
+gem 'geokit-rails'
+
 group :development do
   # Gem to detect N+1 queries
   gem 'better_errors'

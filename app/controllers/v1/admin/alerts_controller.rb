@@ -1,10 +1,11 @@
 module V1::Admin
 	class AlertsController < V1::AdminController
+		include Wor::Paginate
 
 		def create
 			alert = Alert.new(register_params)
 			return render status: :bad_request unless alert.save
-			send_notifications(alert)
+			SendAlertWorker.perform_async(alert.id, params[:message])
 			render json: alert, status: :created
 		end
 
@@ -25,13 +26,13 @@ module V1::Admin
 			head :ok
 		end
 
-		def send_notifications(alert)
-			SendAlertWorker.perform_async(alert.id, params[:message])
+		def index_for_campaign
+			render_paginated Alert.where(campaign_id: params[:campaign_id])
 		end
 
 		private
 		def register_params
-			params.permit(:title, :campaign_id)
+			params.permit(:title, :campaign_id, :zone_id)
 		end
 
 	end
