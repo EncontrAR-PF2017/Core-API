@@ -1,5 +1,6 @@
 module V1::Admin
 	class CampaignsController < V1::AdminController
+		include Wor::Paginate
 
 		MSG_CAMPAIGN_EXISTS = 'There is an active campaign for the same person'
 		MSG_PERSON_NOT_EXISTS = 'The missing person doesn\'t exist'
@@ -29,6 +30,10 @@ module V1::Admin
 			campaign = Campaign.find(params[:id])
 			campaign.destroy
 			head :ok
+		end
+
+		def index_all
+ 			render_paginated Campaign, each_serializer: PrivateCampaignSerializer
 		end
 
 		def get_owner

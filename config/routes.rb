@@ -43,6 +43,9 @@ Rails.application.routes.draw do
 					member do 
 						get :get_owner
 					end
+					collection do
+						get :index_all
+					end
 				end
 
 				resources :finders, only: [:show, :update, :destroy] do
