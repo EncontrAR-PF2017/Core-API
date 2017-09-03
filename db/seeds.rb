@@ -32,7 +32,7 @@ ci4 = CampaignImage.create(url: "http://cdn.skim.gs/image/upload/v1456342653/msi
 campaign1 = Campaign.create(title: "Todos por Luli", description: "Estamos buscando a Luciana, se perdio el lunes pasado por la noche", user_id: user1.id, missing_person_id: mp1.id)
 campaign2 = Campaign.create(title: "Busqueda por Carlos", description: "Carlos, tu familia te esta buscando", user_id: user2.id, missing_person_id: mp2.id)
 
-campaign1.images << ci1
-campaign1.images << ci2
-campaign2.images << ci3
-campaign2.images << ci4
+campaign1.campaign_images << ci1
+campaign1.campaign_images << ci2
+campaign2.campaign_images << ci3
+campaign2.campaign_images << ci4
