@@ -24,5 +24,15 @@ Finder.create(device_id: "Tc2US3QbuyXzBwwd2puZ", os: "android", latitude: "-34.6
 Zone.create(name: "Villa Lugano 1", south_west_lat: "-34.690947", south_west_long: "-58.484310", north_east_lat: "-34.662684", north_east_long: "-58.458558")
 Zone.create(name: "Plaza Italia", south_west_lat: "-34.582707", south_west_long: "-58.423094", north_east_lat: "-34.580365", north_east_long: "-58.419520")
 
-Campaign.create(title: "Todos por Luli", description: "Estamos buscando a Luciana, se perdio el lunes pasado por la noche", user_id: user1.id, missing_person_id: mp1.id)
-Campaign.create(title: "Busqueda por Carlos", description: "Carlos, tu familia te esta buscando", user_id: user2.id, missing_person_id: mp2.id)
+ci1 = CampaignImage.create(url: "https://media0ch-a.akamaihd.net/84/90/fdc16ea96bb48af46cfb847547fa3629.jpg")
+ci2 = CampaignImage.create(url: "http://res.freestockphotos.biz/pictures/14/14599-a-beautiful-young-girl-playing-on-a-playground-with-a-dog-pv.jpg")
+ci3 = CampaignImage.create(url: "http://www.wcparksandrec.com/kids_birthday_party_ideas_i9a1lo.jpg")
+ci4 = CampaignImage.create(url: "http://cdn.skim.gs/image/upload/v1456342653/msi/family_beach_vacation_is8uph.jpg")
+
+campaign1 = Campaign.create(title: "Todos por Luli", description: "Estamos buscando a Luciana, se perdio el lunes pasado por la noche", user_id: user1.id, missing_person_id: mp1.id)
+campaign2 = Campaign.create(title: "Busqueda por Carlos", description: "Carlos, tu familia te esta buscando", user_id: user2.id, missing_person_id: mp2.id)
+
+campaign1.images << ci1
+campaign1.images << ci2
+campaign2.images << ci3
+campaign2.images << ci4
