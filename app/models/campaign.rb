@@ -8,5 +8,7 @@ class Campaign < ApplicationRecord
 
 	enum status: { actived: 0, deactivated: 1, expired: 2 }
 
-	alias_attribute :images, :campaign_images
+	def images
+		campaign_images.map { |element| element.url }
+	end
 end
