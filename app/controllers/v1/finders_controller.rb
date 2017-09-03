@@ -1,5 +1,7 @@
 module V1
 	class FindersController < PublicController
+		include GeoSearchHelper
+
 		skip_before_action :validate_token?, only: [:create]
 
 		def create
@@ -25,7 +27,8 @@ module V1
 
 		def update_pos
  			@finder.update(lat_long_params)
- 			head :ok
+ 			alerts = GeoSearchHelper.search_alerts_by_finder(@finder)
+ 			render json: alerts, status: :ok
 		end
 
 		private

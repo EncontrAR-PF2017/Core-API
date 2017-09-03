@@ -4,11 +4,11 @@ module V1
 
 		def show
  			campaign = Campaign.find(params[:id])
- 			render json: campaign, serializer: PublicCampaignSerializer
+ 			render json: campaign
 		end
 
 		def index_all
- 			render_paginated Campaign, each_serializer: PublicCampaignSerializer
+ 			render_paginated Campaign
 		end
 	end
 end
