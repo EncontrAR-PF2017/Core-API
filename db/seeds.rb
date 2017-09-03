@@ -11,9 +11,9 @@ User.create(email: "andres@encontrar.com", name: "Andres", lastname: "Zaraza", p
 User.create(email: "naiara@encontrar.com", name: "Naiu", lastname: "Shawalala", password: "12345678")
 User.create(email: "juan@encontrar.com", name: "Juani", lastname: "Casares", password: "12345678")
 
-mp1 = MissingPerson.create(name: "Luciana", lastname: "Camboya", dni: "39876436", age: "16")
-mp2 = MissingPerson.create(name: "Carlos", lastname: "Altamira", dni: "34347436", age: "35")
-MissingPerson.create(name: "Marina", lastname: "Ibramovich", dni: "35876956", age: "26")
+mp1 = MissingPerson.create(name: "Luciana", lastname: "Camboya", dni: "39876436", age: "16", gender: "female", photo: "https://i.pinimg.com/736x/cf/95/c9/cf95c9b07c4e372be04e456df4cb81b4--model-reference-female-face-reference.jpg")
+mp2 = MissingPerson.create(name: "Carlos", lastname: "Altamira", dni: "34347436", age: "30", gender: "male", photo: "http://www.uni-regensburg.de/Fakultaeten/phil_Fak_II/Psychologie/Psy_II/beautycheck/english/prototypen/m_sexy_gr.jpg")
+MissingPerson.create(name: "Marina", lastname: "Ibramovich", dni: "28876956", age: "65", gender: "female", photo: "http://dmv.barstoolsports.com/files/2014/03/Screen-Shot-2014-03-24-at-4.41.58-PM.png")
 
 Finder.create(device_id: "r1eMljJ7djlOAKYkFYte", os: "android", latitude: "-34.673216", longitude: "-58.473763") # Villa Lugano
 Finder.create(device_id: "J9GexS9gtT2vIhbHuxQd", os: "android", latitude: "-34.581112", longitude: "-58.420514") # Palermo
