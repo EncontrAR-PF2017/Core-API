@@ -36,3 +36,6 @@ campaign1.campaign_images << ci1
 campaign1.campaign_images << ci2
 campaign2.campaign_images << ci3
 campaign2.campaign_images << ci4
+
+Alert.create(title: "Alerta por Lugano", campaign_id: 1, zone_id: 1)
+Alert.create(title: "Buscamos a Carlos!!!", campaign_id: 2, zone_id: 2)
