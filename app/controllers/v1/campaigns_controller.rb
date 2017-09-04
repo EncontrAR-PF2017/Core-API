@@ -8,7 +8,7 @@ module V1
 		end
 
 		def index_all
- 			render_paginated Campaign
+ 			render_paginated Campaign, each_serializer: CampaignSerializer
 		end
 	end
 end
