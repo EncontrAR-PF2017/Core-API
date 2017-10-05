@@ -84,6 +84,17 @@ campaign13.campaign_images << ci10 #Santiago
 campaign13.campaign_images << ci11 #Santiago
 campaign13.campaign_images << ci12 #Santiago
 
+#Agregado
+campaign2.campaign_images << ci10 
+campaign3.campaign_images << ci10 
+campaign4.campaign_images << ci10
+campaign6.campaign_images << ci10
+campaign8.campaign_images << ci10
+campaign9.campaign_images << ci10
+campaign11.campaign_images << ci10
+campaign12.campaign_images << ci10
+campaign14.campaign_images << ci10
+campaign15.campaign_images << ci10
 
 Alert.create(title: "Candela no aparece", campaign_id: 1, zone_id: 1)
 Alert.create(title: "Donde esta Santiago?", campaign_id: 13, zone_id: 2)
@@ -92,4 +103,3 @@ Alert.create(title: "Colaboremos buscando a Paulino", campaign_id: 12, zone_id: 
 Alert.create(title: "Busquemos a Anahi", campaign_id: 5, zone_id: 2)
 Alert.create(title: "Encontremos a Johana", campaign_id: 10, zone_id: 1)
 Alert.create(title: "No encontramos a Alex", campaign_id: 3, zone_id: 2)
-
