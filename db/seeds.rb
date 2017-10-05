@@ -92,3 +92,4 @@ Alert.create(title: "Colaboremos buscando a Paulino", campaign_id: 12, zone_id: 
 Alert.create(title: "Busquemos a Anahi", campaign_id: 5, zone_id: 2)
 Alert.create(title: "Encontremos a Johana", campaign_id: 10, zone_id: 1)
 Alert.create(title: "No encontramos a Alex", campaign_id: 3, zone_id: 2)
+
