@@ -55,20 +55,20 @@ ci12 = CampaignImage.create(url: "https://i.gyazo.com/e3b354e14abccb55e405efd0e8
 
 
 campaign1 = Campaign.create(title: "Buscamos a Candela", description: "Candela desaparecio el pasado Lunes 22/08", user_id: user1.id, missing_person_id: mp1.id)
-campaign2 = Campaign.create(title: "Ayudemos a encontrar a Alberto", description: "Fue visto por última vez el 08/08/2017 en paternal", user_id: user1.id, missing_person_id: mp2.id)
+campaign2 = Campaign.create(title: "Ayudemos a encontrar a Alberto", description: "Fue visto por ultima vez el 08/08/2017 en paternal", user_id: user1.id, missing_person_id: mp2.id)
 campaign3 = Campaign.create(title: "Todos con Alex", description: "El 16 de Abril de 2015 desaparecio de la puerta del jardin", user_id: user1.id, missing_person_id: mp3.id)
-campaign4 = Campaign.create(title: "Busquemos a Alicia!", description: "Está bajo tratamiento médico. Desaparecio 07/04/2017, en Rosario, Santa Fe, Argentina", user_id: user1.id, missing_person_id: mp4.id)
-campaign5 = Campaign.create(title: "Alum esta perdida", description: "Fue vista con su padre por última vez en el shopping Alto Palermo el 05/06/2017", user_id: user1.id, missing_person_id: mp5.id)
-campaign6 = Campaign.create(title: "Se busca a Anahí", description: "Anahí salió de su casa y dijo que se iba a caminar. Jamas volvio", user_id: user1.id, missing_person_id: mp6.id)
-campaign7 = Campaign.create(title: "Araceli no aparece", description: "Envío un último mensaje en donde avisaba que estaba yendo a la casa", user_id: user1.id, missing_person_id: mp7.id)
-campaign8 = Campaign.create(title: "Encontemos a Cesar", description: "Alto, de contextura delgada, cabello castaño claro y ojos verdes. Padece Esquizofrenia. Trabajaba de pintor de obra y cartoneaba. Está bajo tratamiento médico.", user_id: user1.id, missing_person_id: mp8.id)
-campaign9 = Campaign.create(title: "No encontramos a Dario", description: "1.80 aprox contextura normal, pelo castaño oscuro ojos castaños oscuros,vestia camiseta de boca,joggins negro zapatillas blancas tenia un tatuaje de un tigre en el brazo izquierdo", user_id: user1.id, missing_person_id: mp9.id)
-campaign10 = Campaign.create(title: "Johana sigue sin aparecer", description: "La última vez que la vieron, luego de que se despidiera de una amiga en la zona de 1 y 63, La Plata", user_id: user1.id, missing_person_id: mp10.id)
-campaign11 = Campaign.create(title: "Marcelo nos necesita", description: "Esta bajo tratamiento medico. Vestía; short de color azul, remera beige y zapatillas azul", user_id: user1.id, missing_person_id: mp11.id)
-campaign12 = Campaign.create(title: "Estamos buscando a Paulino", description: "Fue visto por última vez el 17/06/2017, en Capital Federal", user_id: user1.id, missing_person_id: mp12.id)
-campaign13 = Campaign.create(title: "¿Donde esta Santiago?", description: "Fue visto por última vez en el desalojo de gendarmeria en localidad de Cushamen", user_id: user1.id, missing_person_id: mp13.id)
+campaign4 = Campaign.create(title: "Busquemos a Alicia!", description: "Esta bajo tratamiento medico. Desaparecio 07/04/2017, en Rosario, Santa Fe, Argentina", user_id: user1.id, missing_person_id: mp4.id)
+campaign5 = Campaign.create(title: "Alum esta perdida", description: "Fue vista con su padre por ultima vez en el shopping Alto Palermo el 05/06/2017", user_id: user1.id, missing_person_id: mp5.id)
+campaign6 = Campaign.create(title: "Se busca a Anahi", description: "Anahi salio de su casa y dijo que se iba a caminar. Jamas volvio", user_id: user1.id, missing_person_id: mp6.id)
+campaign7 = Campaign.create(title: "Araceli no aparece", description: "Envio un ultimo mensaje en donde avisaba que estaba yendo a la casa", user_id: user1.id, missing_person_id: mp7.id)
+campaign8 = Campaign.create(title: "Encontemos a Cesar", description: "Alto, de contextura delgada, cabello castano claro y ojos verdes. Padece Esquizofrenia. Trabajaba de pintor de obra y cartoneaba. Esta bajo tratamiento medico.", user_id: user1.id, missing_person_id: mp8.id)
+campaign9 = Campaign.create(title: "No encontramos a Dario", description: "1.80 aprox contextura normal, pelo castano oscuro ojos castanos oscuros,vestia camiseta de boca,joggins negro zapatillas blancas tenia un tatuaje de un tigre en el brazo izquierdo", user_id: user1.id, missing_person_id: mp9.id)
+campaign10 = Campaign.create(title: "Johana sigue sin aparecer", description: "La ultima vez que la vieron, luego de que se despidiera de una amiga en la zona de 1 y 63, La Plata", user_id: user1.id, missing_person_id: mp10.id)
+campaign11 = Campaign.create(title: "Marcelo nos necesita", description: "Esta bajo tratamiento medico. Vestia; short de color azul, remera beige y zapatillas azul", user_id: user1.id, missing_person_id: mp11.id)
+campaign12 = Campaign.create(title: "Estamos buscando a Paulino", description: "Fue visto por ultima vez el 17/06/2017, en Capital Federal", user_id: user1.id, missing_person_id: mp12.id)
+campaign13 = Campaign.create(title: "Donde esta Santiago?", description: "Fue visto por ultima vez en el desalojo de gendarmeria en localidad de Cushamen", user_id: user1.id, missing_person_id: mp13.id)
 campaign14 = Campaign.create(title: "Sofi te estamos buscando", description: "Sofia desaparecio en una plaza mientras su madre se distrajo unos minutos", user_id: user1.id, missing_person_id: mp14.id)
-campaign15 = Campaign.create(title: "Ayudemos a encontrar a Sol", description: "Sol fue vista por última vez el pasado 2 de febrero", user_id: user1.id, missing_person_id: mp15.id)
+campaign15 = Campaign.create(title: "Ayudemos a encontrar a Sol", description: "Sol fue vista por ultima vez el pasado 2 de febrero", user_id: user1.id, missing_person_id: mp15.id)
 
 
 campaign1.campaign_images << ci1 #Candela
@@ -86,7 +86,7 @@ campaign13.campaign_images << ci12 #Santiago
 
 
 Alert.create(title: "Candela no aparece", campaign_id: 1, zone_id: 1)
-Alert.create(title: "¿Donde està Santiago?", campaign_id: 13, zone_id: 2)
+Alert.create(title: "Donde esta Santiago?", campaign_id: 13, zone_id: 2)
 Alert.create(title: "Ayudemos a encontrar a Araceli", campaign_id: 7, zone_id: 1)
 Alert.create(title: "Colaboremos buscando a Paulino", campaign_id: 12, zone_id: 2)
 Alert.create(title: "Busquemos a Anahi", campaign_id: 5, zone_id: 2)
