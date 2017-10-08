@@ -25,6 +25,15 @@ module V1::Admin
 			head :ok
 		end
 
+		## https://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
+		def index
+		  list = MissingPerson.where(nil)
+		  filtering_params(params).each do |key, value|
+		    list = list.public_send(key, value) if value.present?
+		  end
+		  render json: list
+		end
+
 		def index_all
  			render_paginated MissingPerson
 		end
@@ -32,6 +41,10 @@ module V1::Admin
 		private
 		def register_params
 			params.permit(:name, :lastname, :dni, :sex, :age, :photo)
+		end
+
+		def filtering_params(params)
+		  params.slice(:dni)
 		end
 	end
 end
