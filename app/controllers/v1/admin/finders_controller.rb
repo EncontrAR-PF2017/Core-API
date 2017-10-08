@@ -1,5 +1,6 @@
 module V1::Admin
 	class FindersController < V1::AdminController
+		include Wor::Paginate
 
 		skip_before_action :validate_token?, only: [:send_message]
 
@@ -18,6 +19,10 @@ module V1::Admin
 			finder = Finder.find(params[:id])
 			finder.destroy
 			head :ok
+		end
+
+		def index_all
+ 			render_paginated Finder
 		end
 
 		def send_message

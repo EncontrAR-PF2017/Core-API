@@ -52,6 +52,9 @@ Rails.application.routes.draw do
 					member do
 						post :send_message
 					end
+					collection do
+						get :index_all
+					end
 				end
 
 				resources :missing_persons, only: [:create, :show, :update, :destroy] do
