@@ -26,7 +26,7 @@ module V1::Admin
 		end
 
 		## https://www.justinweiss.com/articles/search-and-filter-rails-models-without-bloating-your-controller/
-		def index
+		def search_by
 		  list = MissingPerson.where(nil)
 		  filtering_params(params).each do |key, value|
 		    list = list.public_send(key, value) if value.present?

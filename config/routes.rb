@@ -60,7 +60,7 @@ Rails.application.routes.draw do
 				resources :missing_persons, only: [:create, :show, :update, :destroy] do
 					collection do
 						get :index_all
-						post :index
+						post :search_by
 					end
 				end
 
