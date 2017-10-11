@@ -4,7 +4,7 @@ class SendAlertWorker
 
 	def perform(alert_id, campaign_id)
 		alert = Alert.find_by_id(alert_id)
-		campaign = Campaign.find_by_id(campaign_id?)
+		campaign = Campaign.find_by_id(campaign_id)
 		return unless alert.present? && campaign.present?
 
 		finders = GeoSearchHelper.search_finders_by_zone(alert.zone)
