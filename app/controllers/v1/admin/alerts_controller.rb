@@ -5,7 +5,7 @@ module V1::Admin
 		def create
 			alert = Alert.new(register_params)
 			return render status: :bad_request unless alert.save
-			SendAlertWorker.perform_async(alert.id, params[:message])
+			SendAlertWorker.perform_async(alert.id, params[:campaign_id])
 			render json: alert, status: :created
 		end
 
