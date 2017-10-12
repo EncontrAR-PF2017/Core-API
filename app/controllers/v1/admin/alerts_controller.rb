@@ -11,7 +11,7 @@ module V1::Admin
 
 		def show
  			alert = Alert.find(params[:id])
- 			render json: alert
+ 			render json: alert, serializer: PrivateAlertSerializer
 		end
 
 		def update
@@ -27,7 +27,8 @@ module V1::Admin
 		end
 
 		def index_for_campaign
-			render_paginated Alert.where(campaign_id: params[:campaign_id])
+			render_paginated Alert.where(campaign_id: params[:campaign_id]), 
+				each_serializer: PrivateAlertSerializer
 		end
 
 		private
