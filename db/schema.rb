@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903173855) do
+ActiveRecord::Schema.define(version: 20171012021518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20170903173855) do
   end
 
   create_table "zones", force: :cascade do |t|
-    t.string   "name"
+    t.string   "label"
     t.float    "south_west_lat"
     t.float    "south_west_long"
     t.float    "north_east_lat"

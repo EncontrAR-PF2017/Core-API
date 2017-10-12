@@ -29,9 +29,21 @@ module V1::Admin
  			render_paginated Zone
 		end
 
+		def search_by
+		  list = Zone.where(nil)
+		  filtering_params(params).each do |key, value|
+		    list = list.public_send(key, value) if value.present?
+		  end
+		  render json: list
+		end
+
 		private
 		def register_params
 			params.permit(:name, :south_west_lat, :south_west_long, :north_east_lat, :north_east_long)
+		end
+
+		def filtering_params(params)
+		  params.slice(:label)
 		end
 
 	end

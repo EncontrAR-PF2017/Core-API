@@ -67,6 +67,7 @@ Rails.application.routes.draw do
 				resources :zones, only: [:create, :show, :update, :destroy] do
 					collection do
 						get :index_all
+						post :search_by
 					end
 				end
 			end
