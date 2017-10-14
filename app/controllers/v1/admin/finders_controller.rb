@@ -34,7 +34,7 @@ module V1::Admin
 
 		private
 		def update_params
-			params.permit(:email, :name, :lastname, :device_id, :os, :alert_type, :latitude, :longitude)
+			params.permit(:email, :name, :lastname, :device_id, :os, :alert_type, :dni, :latitude, :longitude)
 		end
 	end
 end

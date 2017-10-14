@@ -39,7 +39,7 @@ module V1
 		end
 
 		def update_params
-			params.permit(:email, :name, :lastname, :alert_type)
+			params.permit(:email, :name, :lastname, :alert_type, :dni)
 		end
 
 		def lat_long_params
