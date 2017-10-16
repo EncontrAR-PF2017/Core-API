@@ -40,7 +40,7 @@ module V1::Admin
 
 		private
 		def register_params
-			params.permit(:name, :lastname, :dni, :sex, :age, :photo)
+			params.permit(:name, :lastname, :dni, :gender, :age, :photo)
 		end
 
 		def filtering_params(params)
