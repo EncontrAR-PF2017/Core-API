@@ -8,7 +8,7 @@ class SendAlertWorker
 		return unless alert.present? && campaign.present?
 
 		finders = GeoSearchHelper.search_finders_by_zone(alert.zone)
-		message_content = { data: campaign }
+		message_content = { message: campaign, other: 'Blablal' }
 		finders.each do |finder| 
 			Wor::Push::Notifications::Aws.send_message(finder, message_content)
 		end
