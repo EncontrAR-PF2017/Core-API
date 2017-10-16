@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20171015152155) do
     t.datetime "updated_at",                 null: false
     t.json     "device_tokens", default: {}
     t.string   "auth_token"
+    t.string   "dni"
     t.index ["device_id"], name: "index_finders_on_device_id", unique: true, using: :btree
     t.index ["email"], name: "index_finders_on_email", using: :btree
   end

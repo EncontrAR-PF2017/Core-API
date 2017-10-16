@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 				end
 			end
 
+			resources :conversations, only: [:create]
+
 			namespace :admin do
 
 				resources :users, only: [:create, :show, :update, :destroy] do
