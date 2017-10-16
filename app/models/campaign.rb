@@ -3,6 +3,8 @@ class Campaign < ApplicationRecord
 	belongs_to :missing_person
 	has_many :alerts
 	has_many :campaign_images
+	has_many :conversations
+	has_many :finders, through: :conversations
 
 	validates :title, :description, :user, presence: true
 

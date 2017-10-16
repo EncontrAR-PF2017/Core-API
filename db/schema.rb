@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012021518) do
+ActiveRecord::Schema.define(version: 20171015152155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,21 @@ ActiveRecord::Schema.define(version: 20171012021518) do
     t.index ["user_id"], name: "index_campaigns_on_user_id", using: :btree
   end
 
+  create_table "chat_messages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "campaign_id"
+    t.integer  "finder_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["campaign_id"], name: "index_conversations_on_campaign_id", using: :btree
+    t.index ["finder_id"], name: "index_conversations_on_finder_id", using: :btree
+  end
+
   create_table "finders", force: :cascade do |t|
     t.text     "email"
     t.text     "name"
@@ -73,6 +88,15 @@ ActiveRecord::Schema.define(version: 20171012021518) do
     t.string   "auth_token"
     t.index ["device_id"], name: "index_finders_on_device_id", unique: true, using: :btree
     t.index ["email"], name: "index_finders_on_email", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "conversation_id"
+    t.string   "content"
+    t.string   "sender"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
   end
 
   create_table "missing_people", force: :cascade do |t|

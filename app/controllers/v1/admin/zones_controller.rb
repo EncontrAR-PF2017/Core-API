@@ -39,7 +39,7 @@ module V1::Admin
 
 		private
 		def register_params
-			params.permit(:name, :south_west_lat, :south_west_long, :north_east_lat, :north_east_long)
+			params.permit(:label, :south_west_lat, :south_west_long, :north_east_lat, :north_east_long)
 		end
 
 		def filtering_params(params)

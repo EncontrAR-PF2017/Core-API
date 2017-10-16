@@ -28,6 +28,7 @@ module RailsBootstrap
       )
     end
 
+    Rails.application.config.action_cable.disable_request_forgery_protection = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
