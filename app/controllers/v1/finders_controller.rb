@@ -29,7 +29,7 @@ module V1
  			@finder.update(lat_long_params)
  			alerts = GeoSearchHelper.search_alerts_by_finder(@finder)
  			campaigns = alerts.map { |element| element.campaign }
- 			## TODO: add a row for alertXfinder
+ 			alerts.each { |element| element.finders << @finder }
  			render json: campaigns, status: :ok
 		end
 
