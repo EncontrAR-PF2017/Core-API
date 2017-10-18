@@ -13,4 +13,8 @@ class Campaign < ApplicationRecord
 	def images
 		campaign_images.map { |element| element.url }
 	end
+
+	def last_zone
+		alerts.order(:created_at).last.zone unless alerts.empty?
+	end
 end
