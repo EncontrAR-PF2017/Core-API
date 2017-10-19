@@ -2,12 +2,19 @@ module V1::Admin
 	class CampaignsController < V1::AdminController
 		include Wor::Paginate
 
-		MSG_CAMPAIGN_EXISTS = 'There is an active campaign for the same person'
-		MSG_PERSON_NOT_EXISTS = 'The missing person doesn\'t exist'
+		MSG_CAMPAIGN_EXISTS = {
+			errorCode: 101,
+			message: 'There is an active campaign for the same person'
+		}
+
+		MSG_PERSON_NOT_EXISTS = {
+			errorCode: 102,
+			message: 'The missing person doesn\'t exist'
+		} 
 
 		def create
-			return render status: :bad_request, json: { message: MSG_CAMPAIGN_EXISTS } if campaign_already_exists?
-			return render status: :bad_request, json: { message: MSG_PERSON_NOT_EXISTS } if missing_person_exists?
+			return render status: :bad_request, json: MSG_CAMPAIGN_EXISTS if campaign_already_exists?
+			return render status: :bad_request, json: MSG_PERSON_NOT_EXISTS if missing_person_exists?
 
 			campaign = Campaign.new(register_params)
 			campaign.user_id = @user.id
@@ -41,6 +48,11 @@ module V1::Admin
 			render json: campaign.user
 		end
 
+		private
+		def register_params
+			params.permit(:title, :description, :missing_person_id)
+		end
+
 		def campaign_already_exists?
 			Campaign.where(missing_person_id: params[:missing_person_id], 
 				status: Campaign.statuses[:actived]).present?
@@ -48,11 +60,6 @@ module V1::Admin
 
 		def missing_person_exists?
 			MissingPerson.find_by_id(params[:missing_person_id]).nil?
-		end
-
-		private
-		def register_params
-			params.permit(:title, :description, :missing_person_id)
 		end
 	end
 end
