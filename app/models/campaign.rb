@@ -8,7 +8,7 @@ class Campaign < ApplicationRecord
 
 	validates :title, :description, :user, presence: true
 
-	enum status: { actived: 0, deactivated: 1, expired: 2 }
+	enum status: { actived: 0, deactivated: 1, expired: 2, success: 3 }
 
 	def images
 		campaign_images.map { |element| element.url }

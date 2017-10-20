@@ -29,7 +29,7 @@ module V1::Admin
 
 		def update
  			campaign = Campaign.find(params[:id])
- 			campaign.update(register_params)
+ 			campaign.update(update_params)
  			head :ok
 		end
 
@@ -50,7 +50,11 @@ module V1::Admin
 
 		private
 		def register_params
-			params.permit(:title, :description, :missing_person_id)
+			params.permit(:title, :description, :missing_person_id, :expire_date)
+		end
+
+		def update_params
+			params.permit(:title, :description, :missing_person_id, :status, :expire_date)
 		end
 
 		def campaign_already_exists?
