@@ -3,5 +3,8 @@
 
 :schedule:
   expire_campaign_worker:
-    cron: '* * * * * *'   # Runs once per minute
+    cron: '*/5 * * * *'   # Runs every 5 minutes
+    class: ExpireCampaignWorker
+  expire_alert_worker:
+    cron: '*/5 * * * *'   # Runs every 5 minutes
     class: ExpireCampaignWorker
