@@ -47,5 +47,8 @@ module RailsBootstrap
 
     # Tell your app to use the Rack::Attack middleware
     config.middleware.use Rack::Attack
+
+    config.time_zone = 'Buenos Aires'
+    config.active_record.default_timezone = :local
   end
 end
