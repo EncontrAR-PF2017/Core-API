@@ -1,3 +1,7 @@
 :queues:
   - default
 
+:schedule:
+  expire_campaign_worker:
+    cron: '* * * * * *'   # Runs once per minute
+    class: ExpireCampaignWorker

@@ -58,6 +58,7 @@ gem 'slim-rails'
 gem 'sidekiq'
 gem 'sidekiq-failures'
 gem 'sidekiq_mailer'
+gem 'sidekiq-scheduler'
 gem 'sinatra', require: nil
 
 # Authorization Policies
