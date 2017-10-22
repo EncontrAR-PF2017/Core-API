@@ -9,7 +9,7 @@ class ExpireCampaignWorker
     	if campaign.expire_date < Date.current()
     		campaign.status = 'expired'
     		campaign.save
-    		puts 'The campaign ${campaign.title} was expired'
+    		puts "The campaign #{campaign.title} was expired"
     	end
     end
   end
