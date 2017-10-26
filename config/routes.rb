@@ -79,6 +79,12 @@ Rails.application.routes.draw do
 						get :index_all
 					end
 				end
+
+				resources :reports do
+					collection do
+						post :campaign_status
+					end
+				end
 			end
 	end
 

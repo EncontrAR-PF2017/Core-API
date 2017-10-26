@@ -8,6 +8,8 @@ class Campaign < ApplicationRecord
 
 	validates :title, :description, :user, presence: true
 
+	before_update :log_status_change, if: :status_changed?
+
 	enum status: { actived: 0, deactivated: 1, expired: 2, success: 3 }
 
 	def images
@@ -16,5 +18,10 @@ class Campaign < ApplicationRecord
 
 	def last_zone
 		alerts.order(:created_at).last.zone unless alerts.empty?
+	end
+
+	def log_status_change
+		log = CampaignLog.create(campaign: self, old_status: status_was, new_status: status)
+		log.save
 	end
 end
