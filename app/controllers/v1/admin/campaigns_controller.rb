@@ -24,7 +24,7 @@ module V1::Admin
 
 		def show
  			campaign = Campaign.find(params[:id])
- 			render json: campaign
+ 			render json: campaign, serializer: PrivateCampaignSerializer
 		end
 
 		def update
