@@ -37,8 +37,8 @@ Finder.create(device_id: "BOw9G4z7rITWiEgGXAbo", os: "android", latitude: "-34.6
 Finder.create(device_id: "SFVWDlDTnBaUBamQOVw0", os: "android", latitude: "-34.598437", longitude: "-58.499901") # Villa Devoto
 Finder.create(device_id: "Tc2US3QbuyXzBwwd2puZ", os: "android", latitude: "-34.618005", longitude: "-58.436386") # Caballito
 
-Zone.create(name: "Villa Lugano 1", south_west_lat: "-34.690947", south_west_long: "-58.484310", north_east_lat: "-34.662684", north_east_long: "-58.458558")
-Zone.create(name: "Plaza Italia", south_west_lat: "-34.582707", south_west_long: "-58.423094", north_east_lat: "-34.580365", north_east_long: "-58.419520")
+Zone.create(label: "Villa Lugano 1", south_west_lat: "-34.690947", south_west_long: "-58.484310", north_east_lat: "-34.662684", north_east_long: "-58.458558")
+Zone.create(label: "Plaza Italia", south_west_lat: "-34.582707", south_west_long: "-58.423094", north_east_lat: "-34.580365", north_east_long: "-58.419520")
 
 ci1 = CampaignImage.create(url: "https://i.gyazo.com/60362c597cabac2417f594fc0724d66b.png") #Candela
 ci2 = CampaignImage.create(url: "https://i.gyazo.com/62ac1e788352766998bf2b9e94746a32.png") #Candela
