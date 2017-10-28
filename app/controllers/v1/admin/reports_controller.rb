@@ -5,7 +5,6 @@ module V1::Admin
 		def campaign_status
 			logs = CampaignLog.where('created_at > ? AND created_at < ? AND new_status = ?', 
 			 	params[:from], params[:to], params[:status])
-
 			render_paginated logs, each_serializer: CampaignLogSerializer
 		end
 	end
