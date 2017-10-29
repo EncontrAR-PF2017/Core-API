@@ -29,7 +29,11 @@ module V1
  			@finder.update(lat_long_params)
  			alerts = GeoSearchHelper.search_alerts_by_finder(@finder)
  			campaigns = alerts.map { |element| element.campaign }
- 			alerts.each { |element| element.finders << @finder }
+ 			alerts.each { |element| 
+ 				element.finders << @finder
+ 				## TODO: remove this hack
+ 				View.find_or_create_by(alert_id: element.id, finder_id: @finder.id)
+ 			}
  			render json: campaigns, status: :ok
 		end
 

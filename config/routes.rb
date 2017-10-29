@@ -83,6 +83,7 @@ Rails.application.routes.draw do
 				resources :reports do
 					collection do
 						post :campaign_status
+						post :alert_views
 					end
 				end
 			end

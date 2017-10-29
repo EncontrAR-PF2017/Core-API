@@ -7,5 +7,13 @@ module V1::Admin
 			 	params[:from], params[:to], params[:status])
 			render_paginated logs, each_serializer: CampaignLogSerializer
 		end
+
+		def alert_views
+			views = View.where('created_at > ? AND created_at < ?', params[:from], params[:to])
+				.group("alert_id")
+				.count()
+
+			render_paginated views
+		end
 	end
 end
