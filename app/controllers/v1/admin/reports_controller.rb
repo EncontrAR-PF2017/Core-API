@@ -15,5 +15,11 @@ module V1::Admin
 
 			render_paginated views
 		end
+
+		def finder_reports
+			FinderReport.where('created_at > ? AND created_at < ?', params[:from], params[:to])
+				.group("zone_id")
+				.count()
+		end
 	end
 end
