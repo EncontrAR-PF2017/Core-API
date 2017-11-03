@@ -9,11 +9,9 @@ module V1::Admin
 		end
 
 		def alert_views
-			views = View.where('created_at > ? AND created_at < ?', params[:from], params[:to])
-				.group("alert_id")
-				.count()
-
-			render_paginated views
+			render json: Alert.all, 
+				each_serializer: AlertViewSerializer, 
+				scope: { 'from': params[:from], 'to': params[:to] }
 		end
 
 		def finder_reports
