@@ -15,9 +15,9 @@ module V1::Admin
 		end
 
 		def finder_reports
-			FinderReport.where('created_at > ? AND created_at < ?', params[:from], params[:to])
-				.group("zone_id")
-				.count()
+			render json: Zone.all, 
+				each_serializer: FinderReportSerializer, 
+				scope: { 'from': params[:from], 'to': params[:to] }
 		end
 	end
 end
