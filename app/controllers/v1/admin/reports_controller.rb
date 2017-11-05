@@ -15,13 +15,18 @@ module V1::Admin
 		end
 
 		def finder_reports
-			render json: Zone.all, 
-				each_serializer: FinderReportSerializer, 
-				scope: { 'from': params[:from], 'to': params[:to] }
+			zones = Zone
+				.select("zones.id AS id, zones.label AS label, COUNT(*) AS reports")
+				.joins("INNER JOIN finder_reports ON zones.id = finder_reports.zone_id")
+				.where("finder_reports.created_at BETWEEN ? AND ?", params[:from], params[:to])
+				.group("zones.id")
+				.order("COUNT(*) DESC")
+
+			render json: zones
 		end
 
 		def top_zones
-			render json: Zone
+			zones = Zone
 				.select("zones.id, zones.label, COUNT(DISTINCT campaigns.id)")
 				.joins("INNER JOIN alerts ON alerts.zone_id = zones.id 
 					INNER JOIN campaigns ON campaigns.id = alerts.campaign_id")
@@ -30,6 +35,8 @@ module V1::Admin
 				.having("COUNT(DISTINCT campaigns.id) > 1")
 				.order("COUNT(DISTINCT campaigns.id) DESC")
 				.limit(10)
+
+			render json: zones
 		end
 	end
 end
