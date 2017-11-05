@@ -9,7 +9,7 @@ module V1::Admin
 		end
 
 		def alert_views
-			render json: Alert.all, 
+			render json: Alert.where("created_at BETWEEN ? AND ?", params[:from], params[:to]), 
 				each_serializer: AlertViewSerializer, 
 				scope: { 'from': params[:from], 'to': params[:to] }
 		end
