@@ -8,6 +8,7 @@ class Campaign < ApplicationRecord
 
 	validates :title, :description, :user, presence: true
 
+	after_create :log_creation_status
 	before_update :log_status_change, if: :status_changed?
 
 	enum status: { 
@@ -21,6 +22,11 @@ class Campaign < ApplicationRecord
 
 	def last_zone
 		alerts.order(:created_at).last.zone unless alerts.empty?
+	end
+
+	def log_creation_status
+		log = CampaignLog.create(campaign: self, old_status: nil, new_status: status)
+		log.save
 	end
 
 	def log_status_change
