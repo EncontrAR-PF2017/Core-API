@@ -34,7 +34,7 @@ module V1::Admin
 				return render status: :bad_request unless user.save
 				render json: user, status: :ok, serializer: UserAuthTokenSerializer
 			else
-				render status: :bad_request, json: { message: 'The auth failed. Did you check if the params are right?' }
+				render status: :unauthorized, json: { message: 'The auth failed. Did you check if the params are right?' }
 			end
 		end
 
