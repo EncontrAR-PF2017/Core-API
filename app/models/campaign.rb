@@ -10,7 +10,10 @@ class Campaign < ApplicationRecord
 
 	before_update :log_status_change, if: :status_changed?
 
-	enum status: { actived: 0, deactivated: 1, expired: 2, success: 3 }
+	enum status: { 
+		actived: 0, canceled: 1, expired: 2,
+		success: 3, failure: 4
+	}
 
 	def images
 		campaign_images.map { |element| element.url }
