@@ -53,7 +53,7 @@ Rails.application.routes.draw do
 						get :get_owner
 						get :images
 						post :add_image
-						delete :delete_image
+						post :delete_image
 						get :conversations
 					end
 					collection do
