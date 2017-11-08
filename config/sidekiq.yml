@@ -7,4 +7,4 @@
     class: ExpireCampaignWorker
   expire_alert_worker:
     cron: '*/5 * * * *'   # Runs every 5 minutes
-    class: ExpireCampaignWorker
+    class: ExpireAlertWorker
