@@ -71,7 +71,7 @@ module V1::Admin
 		def conversations
 			campaign = Campaign.find(params[:id])
 			return render status: :bad_request unless campaign.present?
-			render_paginated campaign.conversations
+			render_paginated campaign.conversations, each_serializer: PrivateConversationSerializer
 		end
 
 		private
