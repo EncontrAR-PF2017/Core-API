@@ -51,6 +51,10 @@ Rails.application.routes.draw do
 				resources :campaigns, only: [:create, :show, :update, :destroy], controller: :campaigns do
 					member do 
 						get :get_owner
+						get :images
+						post :add_image
+						delete :delete_image
+						get :conversations
 					end
 					collection do
 						get :index_all

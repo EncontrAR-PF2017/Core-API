@@ -48,6 +48,31 @@ module V1::Admin
 			render json: campaign.user
 		end
 
+		def images
+			campaign = Campaign.find(params[:id])
+			return render head: :bad_request unless campaign.present?
+			render json: campaign.campaign_images unless campaign.nil?
+		end
+
+		def add_image
+			campaign = Campaign.find(params[:id])
+			campaign.campaign_images << CampaignImage.create(url: params[:url])
+			return render status: :bad_request unless campaign.save
+			head :ok
+		end
+
+		def delete_image
+			image = CampaignImage.where(campaign_id: params[:id], id: params[:image_id])
+			CampaignImage.destroy(params[:image_id]) unless image.nil?
+			head :ok
+		end
+
+		def conversations
+			campaign = Campaign.find(params[:id])
+			return render status: :bad_request unless campaign.present?
+			render_paginated campaign.conversations
+		end
+
 		private
 		def register_params
 			params.permit(:title, :description, :missing_person_id, :expire_date)
