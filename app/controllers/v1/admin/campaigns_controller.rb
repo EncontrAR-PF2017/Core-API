@@ -56,9 +56,10 @@ module V1::Admin
 
 		def add_image
 			campaign = Campaign.find(params[:id])
-			campaign.campaign_images << CampaignImage.create(url: params[:url])
+			image = CampaignImage.create(url: params[:url])
+			campaign.campaign_images << image
 			return render status: :bad_request unless campaign.save
-			head :ok
+			render json: image
 		end
 
 		def delete_image
