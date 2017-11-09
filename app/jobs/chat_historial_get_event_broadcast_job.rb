@@ -6,6 +6,6 @@ class ChatHistorialGetEventBroadcastJob < ApplicationJob
 
     ActionCable
       .server
-      .broadcast(channel, {type: 'historial', data: conversation.messages, finder: conversation.finder })
+      .broadcast(channel, {type: 'historial', data: conversation.messages, finder: PublicFinderSerializer.new(conversation.finder) })
   end
 end
