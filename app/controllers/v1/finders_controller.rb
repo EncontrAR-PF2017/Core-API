@@ -32,7 +32,10 @@ module V1
  			alerts.each { |element| 
  				element.finders << @finder
  				## TODO: remove this hack
- 				View.find_or_create_by(alert_id: element.id, finder_id: @finder.id)
+ 				views_count = View.find_by(alert_id: element.id).count
+ 				if (@finder.os == 'ios' && element.notifications_sent > views_count)
+ 					View.find_or_create_by(alert_id: element.id, finder_id: @finder.id)
+ 				end
  			}
  			render json: campaigns, status: :ok
 		end

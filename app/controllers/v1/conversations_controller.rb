@@ -25,7 +25,7 @@ module V1
 		def save_zones_report
 			zones = GeoSearchHelper.search_zones_by_finder(@finder)
 			if (zones.any?)
-				zones.each { |zone| FinderReport.find_or_create_by(finder: @finder, zone: zone) }
+				zones.each { |zone| FinderReport.create(finder: @finder, zone: zone) }
 			end
 		end
 	end
