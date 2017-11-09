@@ -35,7 +35,7 @@ module V1::Admin
 		end
 
 		def index_all
- 			render_paginated MissingPerson
+ 			render_paginated MissingPerson.order("updated_at DESC")
 		end
 
 		private

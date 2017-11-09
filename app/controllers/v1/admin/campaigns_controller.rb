@@ -40,7 +40,7 @@ module V1::Admin
 		end
 
 		def index_all
- 			render_paginated Campaign, each_serializer: PrivateCampaignSerializer
+ 			render_paginated Campaign.order("updated_at DESC"), each_serializer: PrivateCampaignSerializer
 		end
 
 		def get_owner

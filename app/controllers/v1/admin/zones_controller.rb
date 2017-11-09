@@ -26,7 +26,7 @@ module V1::Admin
 		end
 
 		def index_all
- 			render_paginated Zone
+ 			render_paginated Zone.order("updated_at DESC")
 		end
 
 		def search_by

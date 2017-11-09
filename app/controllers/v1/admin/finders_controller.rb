@@ -22,7 +22,7 @@ module V1::Admin
 		end
 
 		def index_all
- 			render_paginated Finder
+ 			render_paginated Finder.order("updated_at DESC")
 		end
 
 		def send_message
