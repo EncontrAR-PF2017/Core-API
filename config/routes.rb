@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 					collection do
 						post :log_in
 						post :log_out
+						get :index_all
 					end
 				end
 

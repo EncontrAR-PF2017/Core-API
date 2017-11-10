@@ -1,5 +1,7 @@
 module V1::Admin
 	class UsersController < V1::AdminController
+		include Wor::Paginate
+		
 		skip_before_action :validate_token?, only: [:create, :log_in]
 
 		def create
@@ -24,6 +26,10 @@ module V1::Admin
 			user = User.find(params[:id])
 			user.destroy
 			head :ok
+		end
+
+		def index_all
+ 			render_paginated User.order("updated_at DESC")
 		end
 
 		def log_in
