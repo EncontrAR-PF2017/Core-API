@@ -3,6 +3,7 @@ module V1::Admin
 		include Wor::Paginate
 
 		def create
+			return render status: :bad_request unless check_create_conditions
 			alert = Alert.new(register_params)
 			return render status: :bad_request unless alert.save
 			SendAlertWorker.perform_async(alert.id, params[:campaign_id])
@@ -34,6 +35,10 @@ module V1::Admin
 		private
 		def register_params
 			params.permit(:title, :campaign_id, :zone_id)
+		end
+
+		def check_create_conditions
+			params[:title].present? && params[:campaign_id].present? && params[:zone_id].present?
 		end
 
 	end
