@@ -96,10 +96,10 @@ campaign12.campaign_images << ci10
 campaign14.campaign_images << ci10
 campaign15.campaign_images << ci10
 
-Alert.create(title: "Candela no aparece", campaign_id: 1, zone_id: 1, expire_date: "2017-12-23")
-Alert.create(title: "Donde esta Santiago?", campaign_id: 13, zone_id: 2, expire_date: "2017-09-21")
-Alert.create(title: "Ayudemos a encontrar a Araceli", campaign_id: 7, zone_id: 1, expire_date: "2017-06-12")
-Alert.create(title: "Colaboremos buscando a Paulino", campaign_id: 12, zone_id: 2, expire_date: "2017-12-05")
-Alert.create(title: "Busquemos a Anahi", campaign_id: 5, zone_id: 2, expire_date: "2018-12-23")
-Alert.create(title: "Encontremos a Johana", campaign_id: 10, zone_id: 1, expire_date: "2018-02-02")
-Alert.create(title: "No encontramos a Alex", campaign_id: 3, zone_id: 2, expire_date: "2017-11-22")
+Alert.create(title: "Candela no aparece", campaign_id: 1, zone_id: 1, expire_date: "2017-12-23", notifications_sent: 2)
+Alert.create(title: "Donde esta Santiago?", campaign_id: 13, zone_id: 2, expire_date: "2017-09-21", notifications_sent: 3)
+Alert.create(title: "Ayudemos a encontrar a Araceli", campaign_id: 7, zone_id: 1, expire_date: "2017-06-12", notifications_sent: 1)
+Alert.create(title: "Colaboremos buscando a Paulino", campaign_id: 12, zone_id: 2, expire_date: "2017-12-05", notifications_sent: 0)
+Alert.create(title: "Busquemos a Anahi", campaign_id: 5, zone_id: 2, expire_date: "2018-12-23", notifications_sent: 0)
+Alert.create(title: "Encontremos a Johana", campaign_id: 10, zone_id: 1, expire_date: "2018-02-02", notifications_sent: 2)
+Alert.create(title: "No encontramos a Alex", campaign_id: 3, zone_id: 2, expire_date: "2017-11-22", notifications_sent: 1)
