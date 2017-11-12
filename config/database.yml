@@ -16,7 +16,7 @@
 #
 development: &default
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   database: encontrar_api
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -32,6 +32,6 @@ test: &test
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV['DATABASE_URL'] %>
