@@ -8,7 +8,7 @@ module V1
 		end
 
 		def index_all
- 			render_paginated Campaign.where(status: :actived), each_serializer: CampaignSerializer
+ 			render_paginated Campaign.where(status: :actived).order("updated_at DESC"), each_serializer: CampaignSerializer
 		end
 	end
 end
