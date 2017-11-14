@@ -30,7 +30,7 @@ module V1::Admin
 				.select("zones.id, zones.label, COUNT(DISTINCT campaigns.id)")
 				.joins("INNER JOIN alerts ON alerts.zone_id = zones.id
 					INNER JOIN campaigns ON campaigns.id = alerts.campaign_id")
-				.where("campaigns.created_at BETWEEN ? AND ?", params[:from], params[:to])
+				.where("alerts.created_at BETWEEN ? AND ?", params[:from], params[:to])
 				.group("zones.id")
 				.order("COUNT(DISTINCT campaigns.id) DESC")
 				.limit(10)
