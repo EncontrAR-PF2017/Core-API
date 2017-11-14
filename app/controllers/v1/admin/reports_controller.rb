@@ -3,14 +3,14 @@ module V1::Admin
 		include Wor::Paginate
 
 		def campaign_status
-			logs = CampaignLog.where('created_at > ? AND created_at < ? AND new_status = ?', 
+			logs = CampaignLog.where('created_at > ? AND created_at < ? AND new_status = ?',
 			 	params[:from], params[:to], params[:status])
 			render_paginated logs, each_serializer: CampaignLogSerializer
 		end
 
 		def alert_views
-			render json: Alert.where("created_at BETWEEN ? AND ?", params[:from], params[:to]), 
-				each_serializer: AlertViewSerializer, 
+			render json: Alert.where("created_at BETWEEN ? AND ?", params[:from], params[:to]),
+				each_serializer: AlertViewSerializer,
 				scope: { 'from': params[:from], 'to': params[:to] }
 		end
 
@@ -28,11 +28,10 @@ module V1::Admin
 		def top_zones
 			zones = Zone
 				.select("zones.id, zones.label, COUNT(DISTINCT campaigns.id)")
-				.joins("INNER JOIN alerts ON alerts.zone_id = zones.id 
+				.joins("INNER JOIN alerts ON alerts.zone_id = zones.id
 					INNER JOIN campaigns ON campaigns.id = alerts.campaign_id")
 				.where("campaigns.created_at BETWEEN ? AND ?", params[:from], params[:to])
 				.group("zones.id")
-				.having("COUNT(DISTINCT campaigns.id) > 1")
 				.order("COUNT(DISTINCT campaigns.id) DESC")
 				.limit(10)
 
