@@ -8,7 +8,7 @@ RailsBootstrap
 
 Kickoff for Rails web applications.
 
-## Running local server
+## Running local server 
 
 ### Git pre push hook
 
